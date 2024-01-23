@@ -1,0 +1,26 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@using BlazorApp01.Components.Demo
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<h5>Counter Value : @counterValue </h5>
+
+<CounterDemo IncrementValue=5 
+    CurrentCounterValueChanged="CurrentValueUpdated" />
+
+
+
+
+@code{
+    private int counterValue = 1;
+
+    private void CurrentValueUpdated(int value){
+        counterValue = value;
+    }
+}
