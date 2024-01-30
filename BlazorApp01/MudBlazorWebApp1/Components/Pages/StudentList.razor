@@ -1,0 +1,37 @@
+﻿@page "/studentlist"
+@rendermode InteractiveServer
+<MyMudProviders />
+
+<h3>StudentList</h3>
+
+<MudTable  Items="@students">
+    <HeaderContent>
+        <MudTh>FirstName</MudTh>
+        <MudTh>LastName</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Registration No.</MudTh>
+        <MudTh>TEl</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="FirstName">@context.FirstName</MudTd>
+        <MudTd DataLabel="LastName">@context.LastName</MudTd>
+        <MudTd DataLabel="Email">@context.Email</MudTd>
+        <MudTd DataLabel="Registration No.">@context.RegistrationNo</MudTd>
+        <MudTd DataLabel="TEl">@context.Phone</MudTd>
+    </RowTemplate>
+        <PagerContent>
+            <MudTablePager />
+        </PagerContent>
+</MudTable>
+
+@code {
+    private List<Student> students;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        using StudentContext db = new();
+        students = db.Students.ToList();
+
+    }
+}
