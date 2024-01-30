@@ -5,10 +5,11 @@ namespace BlazorApp02.Data;
 
 public class StudentContext : DbContext
 {
+    
     public DbSet<Student> Students { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite(@"DataSource=D:\teaching\Web\.NET\Blazor\01\Blazor.NET\BlazorApp01\BlazorApp02\students.db;");
+        optionsBuilder.UseSqlite(@"DataSource=C:\rajitha\teaching\ee4355\src\Blazor.NET\Blazor.NET\BlazorApp01\BlazorApp02\students.db;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
